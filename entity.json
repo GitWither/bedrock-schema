@@ -37,7 +37,7 @@
                     "$ref": "#/definitions/block_description"
                 },
                 "components": {
-                    "$ref": "#/definitions/components"
+                    "$ref": "#/definitions/block_components"
                 },
                 "events": {
                     "$ref": "#/definitions/events"
@@ -55,7 +55,7 @@
                     "$ref": "#/definitions/component_groups"
                 },
                 "components": {
-                    "$ref": "#/definitions/components"
+                    "$ref": "#/definitions/entity_components"
                 },
                 "events": {
                     "$ref": "#/definitions/events"
@@ -297,15 +297,20 @@
             "type": "object",
             "patternProperties": {
                 "^.*$": {
-                    "$ref": "#/definitions/library/components"
+                    "$ref": "#/definitions/library/entity_components"
                 }
             },
             "title": "Component Groups"
         },
-        "components": {
+        "entity_components": {
             "title": "Components",
             "type": "object",
-            "$ref": "#/definitions/library/components"
+            "$ref": "#/definitions/library/entity_components"
+        },
+        "block_components": {
+            "title": "Components",
+            "type": "object",
+            "$ref": "#/definitions/library/block_components"
         },
         "events": {
             "title": "Events",
@@ -2567,7 +2572,30 @@
                     "hard"
                 ]
             },
-            "components": {
+            "block_components": {
+                "properties": {
+                    "minecraft:on_fall_on": {
+                        "type": "object",
+                        "properties": {
+                            "condition": {
+                                "type": "string",
+                                "default": "query.foo_bar"
+                            },
+                            "event": {
+                                "$ref": "#/definitions/library/components/values/trigger"
+                            },
+                            "min_fall_distance": {
+                                "type": "decimal",
+                                "default": 1
+                            },
+                            "target": {
+                                "$ref": "#/definitions/library/filters/subjects"
+                            }
+                        }
+                    }
+                }
+            },
+            "entity_components": {
                 "properties": {
                     "minecraft:annotation.break_door": {
                         "type": "object",
