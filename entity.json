@@ -2667,7 +2667,7 @@
                                 "$ref": "#/definitions/library/components/values/trigger"
                             },
                             "target": {
-                                "$ref": "#/definitions/library/block_materials"
+                                "$ref": "#/definitions/library/filters/subjects"
                             }
                         }
                     },
@@ -2688,18 +2688,18 @@
                         "type": "object",
                         "patternProperties": {
                             "^.*$": {
-                                "type": ["string", "object"],
+                                "type": "object",
                                 "properties": {
                                     "texture": {
                                         "type": "string"
                                     },
                                     "render_method": {
-                                        "$ref": "#/definitions/library/filters/subjects"
+                                        "$ref": "#/definitions/library/block_materials"
                                     }
                                 }
                             }
                         }
-                    },
+                    }
                 }
             },
             "entity_components": {
