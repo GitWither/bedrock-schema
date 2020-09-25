@@ -1244,6 +1244,7 @@
                 }
             },
             "queries": {
+                "type": "string",
                 "examples": [
                     "query"
                 ]
@@ -2572,27 +2573,133 @@
                     "hard"
                 ]
             },
+            "block_materials": {
+                "enum": [
+                    "alpha_test",
+                    "blend",
+                    "opaque",
+                    "double_sided"
+                ]
+            },
             "block_components": {
                 "properties": {
                     "minecraft:on_fall_on": {
                         "type": "object",
                         "properties": {
                             "condition": {
-                                "type": "string",
-                                "default": "query.foo_bar"
+                                "#ref": "#/definitions/library/queries"
                             },
                             "event": {
                                 "$ref": "#/definitions/library/components/values/trigger"
                             },
                             "min_fall_distance": {
                                 "type": "decimal",
-                                "default": 1
+                                "default": 1.0
                             },
                             "target": {
                                 "$ref": "#/definitions/library/filters/subjects"
                             }
                         }
-                    }
+                    },
+                    "minecraft:on_interact": {
+                        "type": "object",
+                        "properties": {
+                            "condition": {
+                                "#ref": "#/definitions/library/queries"
+                            },
+                            "event": {
+                                "$ref": "#/definitions/library/components/values/trigger"
+                            },
+                            "target": {
+                                "$ref": "#/definitions/library/filters/subjects"
+                            }
+                        }
+                    },
+                    "minecraft:on_placed": {
+                        "type": "object",
+                        "properties": {
+                            "condition": {
+                                "#ref": "#/definitions/library/queries"
+                            },
+                            "event": {
+                                "$ref": "#/definitions/library/components/values/trigger"
+                            },
+                            "target": {
+                                "$ref": "#/definitions/library/filters/subjects"
+                            }
+                        }
+                    },
+                    "minecraft:on_player_placing": {
+                        "type": "object",
+                        "properties": {
+                            "condition": {
+                                "#ref": "#/definitions/library/queries"
+                            },
+                            "event": {
+                                "$ref": "#/definitions/library/components/values/trigger"
+                            },
+                            "target": {
+                                "$ref": "#/definitions/library/filters/subjects"
+                            }
+                        }
+                    },
+                    "minecraft:on_step_off": {
+                        "type": "object",
+                        "properties": {
+                            "condition": {
+                                "#ref": "#/definitions/library/queries"
+                            },
+                            "event": {
+                                "$ref": "#/definitions/library/components/values/trigger"
+                            },
+                            "target": {
+                                "$ref": "#/definitions/library/filters/subjects"
+                            }
+                        }
+                    },
+                    "minecraft:on_step_on": {
+                        "type": "object",
+                        "properties": {
+                            "condition": {
+                                "#ref": "#/definitions/library/queries"
+                            },
+                            "event": {
+                                "$ref": "#/definitions/library/components/values/trigger"
+                            },
+                            "target": {
+                                "$ref": "#/definitions/library/block_materials"
+                            }
+                        }
+                    },
+                    "minecraft:flammable": {
+                        "type": "object",
+                        "properties": {
+                            "burn_odds": {
+                                "type": "integer",
+                                "default": 0
+                            },
+                            "flame_odds": {
+                                "type": "integer",
+                                "default": 0
+                            }
+                        }
+                    },
+                    "minecraft:matieral_instances": {
+                        "type": "object",
+                        "patternProperties": {
+                            "^.*$": {
+                                "type": ["string", "object"],
+                                "properties": {
+                                    "texture": {
+                                        "type": "string"
+                                    },
+                                    "render_method": {
+                                        "$ref": "#/definitions/library/filters/subjects"
+                                    }
+                                }
+                            }
+                        }
+                    },
                 }
             },
             "entity_components": {
