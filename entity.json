@@ -9,10 +9,14 @@
                 "format_version": {
                     "type": ["string", "number"],
                     "format": "number",
-                    "examples": ["1.10", "1.11", "1.12", "1.13", "1.14", "1.15", "1.16", 1, 2]
+                    "examples": ["1.10", "1.11", "1.12", "1.13", "1.14", "1.15", "1.16", 1, 2],
+                    "required": ["format"]
                 },
                 "minecraft:entity": {
                     "$ref": "#/definitions/entity"
+                },
+                "minecraft:block": {
+                    "$ref": "#/definitions/block"
                 },
                 "animation_controllers": {
                     "$ref": "#/definitions/animation_controllers"
@@ -25,12 +29,27 @@
                 }
             }
         },
+        "block": {
+            "title": "Block",
+            "type": "object",
+            "properties": {
+                "description": {
+                    "$ref": "#/definitions/block_description"
+                },
+                "components": {
+                    "$ref": "#/definitions/components"
+                },
+                "events": {
+                    "$ref": "#/definitions/events"
+                }
+            }
+        },
         "entity": {
             "title": "Entity",
             "type": "object",
             "properties": {
                 "description": {
-                    "$ref": "#/definitions/description"
+                    "$ref": "#/definitions/entity_description"
                 },
                 "component_groups": {
                     "$ref": "#/definitions/component_groups"
@@ -216,7 +235,7 @@
                 }
             }
         },
-        "description": {
+        "entity_description": {
             "title": "Description",
             "type": "object",
             "properties": {
@@ -259,6 +278,18 @@
                             "type": "string"
                         }
                     }
+                }
+            }
+        },
+        "block_description": {
+            "title": "Description",
+            "type": "object",
+            "properties": {
+                "identifier": {
+                    "type": "string"
+                },
+                "is_experimental": {
+                    "type": "boolean"
                 }
             }
         },
