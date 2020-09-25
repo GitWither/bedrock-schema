@@ -1178,6 +1178,7 @@
                     },
                     "has_damage": {
                         "examples": [
+                            "all",
                             "anvil",
                             "attack",
                             "block_explosion",
