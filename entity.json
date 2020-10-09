@@ -404,7 +404,7 @@
                 "type": "object",
                 "properties": {
                     "weight": {
-                        "type": "integer"
+                        "type": "number"
                     },
                     "add": {
                         "$ref": "#/definitions/event_add"
