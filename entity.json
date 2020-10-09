@@ -5501,7 +5501,22 @@
                         }
                     },
                     "minecraft:preferred_path": {
-                        "type": "object"
+                        "type": "object",
+                        "description": "Specifies costing information for mobs that prefer to walk on preferred paths.",
+                        "properties": {
+                            "default_block_cost": {
+                                "type": "number"
+                            },
+                            "jump_cost": {
+                                "type": "integer"
+                            },
+                            "max_fall_blocks": {
+                                "type": "integer"
+                            },
+                            "preferred_path_blocks": {
+                                "type": "array"
+                            }
+                        }
                     },
                     "minecraft:projectile": {
                         "type": "object"
